@@ -46,7 +46,31 @@ const DashboardFilters = ({ data, filteredData, setFilteredData }) => {
   const handleCloseBedroomMenu = () => {
     setBedroomMenuTarget(null);
   };
-  const doFilterData = () => {};
+  const doFilterData = () => {
+    let rawData = data.listing;
+    if (bathroomFilter.text !== "All") {
+      rawData = rawData.filter(
+        (data) => parseInt(data.num_bathrooms) === parseInt(bathroomFilter.val)
+      );
+    }
+    if (bedroomFilter.text !== "All") {
+      rawData = rawData.filter(
+        (data) => parseInt(data.num_bedrooms) === bedroomFilter.val
+      );
+    }
+    if (priceFilter.text !== "All") {
+      rawData = rawData.filter(
+        (data) =>
+          parseInt(priceFilter.val) <= parseInt(data.rental_prices.per_month)
+      );
+    }
+    if (propertyTypeFilter !== "All") {
+      rawData = rawData.filter(
+        (data) => data.property_type === propertyTypeFilter
+      );
+    }
+    setFilteredData(rawData);
+  };
   return (
     <div className="shadow rounded bg-[white] flex mt-8 items-center p-4">
       <BathroomMenu
