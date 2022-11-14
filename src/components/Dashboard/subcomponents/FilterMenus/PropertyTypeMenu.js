@@ -7,7 +7,7 @@ const PropertyTypeMenu = ({
   open,
   setPropertyTypeFilter,
 }) => {
-  const filters = ["All", "Flat", "Detached House"];
+  const filters = ["All", "Flat", "Terraced house", "Detached bungalow"];
   return (
     <Menu
       handleClose={handleClose}

@@ -14,10 +14,11 @@ const Dashboard = () => {
         <h1 className="text-3xl font-semibold text-[#023e8a]">
           Search properties to rent{" "}
         </h1>
-        <input
+        {/* Functionality not implemented */}
+        {/* <input
           type="text"
           className="border-2 border-[#023e8a] rounded-lg p-2 outline-none"
-        />
+        /> */}
       </div>
       <DashboardFilters
         data={data}
