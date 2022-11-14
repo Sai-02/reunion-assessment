@@ -1,7 +1,13 @@
 import React from "react";
 import { Menu, MenuItem } from "@mui/material";
 
-const PropertyTypeMenu = ({ handleClose, anchorEl, open }) => {
+const PropertyTypeMenu = ({
+  handleClose,
+  anchorEl,
+  open,
+  setPropertyTypeFilter,
+}) => {
+  const filters = ["All", "Flat", "Detached House"];
   return (
     <Menu
       handleClose={handleClose}
@@ -11,10 +17,18 @@ const PropertyTypeMenu = ({ handleClose, anchorEl, open }) => {
         "aria-labelledby": "basic-button",
       }}
     >
-      <MenuItem onClick={handleClose}>All</MenuItem>
-      <MenuItem onClick={handleClose}>Flat</MenuItem>
-      <MenuItem onClick={handleClose}>Detached house</MenuItem>
-      <MenuItem onClick={handleClose}></MenuItem>
+      {filters.map((item) => {
+        return (
+          <MenuItem
+            onClick={() => {
+              setPropertyTypeFilter(item);
+              handleClose();
+            }}
+          >
+            {item}
+          </MenuItem>
+        );
+      })}
     </Menu>
   );
 };

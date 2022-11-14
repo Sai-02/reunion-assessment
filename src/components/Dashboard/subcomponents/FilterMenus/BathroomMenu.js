@@ -1,11 +1,28 @@
-import React from "react";
 import { Menu, MenuItem } from "@mui/material";
+import React from "react";
 
-const PriceMenu = ({ handleClose, anchorEl, open, setPriceFilter }) => {
+const BathroomMenu = ({ handleClose, anchorEl, open, setBathroomFilter }) => {
   const filters = [
-    { text: "All", val: 0 },
-    { text: "> $1000", val: 1000 },
-    { text: "> $2000", val: 2000 },
+    {
+      text: "All",
+      val: 0,
+    },
+    {
+      text: "1 Bathroom",
+      val: 1,
+    },
+    {
+      text: "2 Bathrooms",
+      val: 2,
+    },
+    {
+      text: "3 Bathrooms",
+      val: 3,
+    },
+    {
+      text: "4 Bathrooms",
+      val: 4,
+    },
   ];
   return (
     <Menu
@@ -20,7 +37,7 @@ const PriceMenu = ({ handleClose, anchorEl, open, setPriceFilter }) => {
         return (
           <MenuItem
             onClick={() => {
-              setPriceFilter(item);
+              setBathroomFilter(item);
               handleClose();
             }}
           >
@@ -32,4 +49,4 @@ const PriceMenu = ({ handleClose, anchorEl, open, setPriceFilter }) => {
   );
 };
 
-export default PriceMenu;
+export default BathroomMenu;

@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DashboardContent from "./subcomponents/DashboardContent";
 import DashboardFilters from "./subcomponents/DashboardFilters";
-
+import data from "./subcomponents/TestContent.json";
 const Dashboard = () => {
+  const [filteredData, setFilteredData] = useState([]);
+  useEffect(() => {
+    console.log(data);
+    setFilteredData(data.listing);
+  }, []);
   return (
     <div className="py-12 px-28 bg-[#edfafd] bg-[#f7f7f7] ">
       <div className="flex justify-between">
@@ -14,8 +19,12 @@ const Dashboard = () => {
           className="border-2 border-[#023e8a] rounded-lg p-2 outline-none"
         />
       </div>
-      <DashboardFilters />
-      <DashboardContent />
+      <DashboardFilters
+        data={data}
+        filteredData={filteredData}
+        setFilteredData={setFilteredData}
+      />
+      <DashboardContent filteredData={filteredData} />
     </div>
   );
 };
